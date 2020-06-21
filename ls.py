@@ -23,31 +23,31 @@ class ls:
 
 	__std_min_padding = 2  # standard minimum number of spaces between file/directory names
 
-	'''
-	'' @brief initializer for ls class
-	'' @param path_string path to the target directory as a string
-	'''
+	#
+	# @brief initializer for ls class
+	# @param path_string path to the target directory as a string
+	#
 	def __init__(self, path_string):
 		os.system("")
 		self._directory_path = path_string
 
-	'''
-	'' @brief shuts down the program in the case of an error
-	'''
+	#
+	# @brief shuts down the program in the case of an error
+	#
 	def __ShutDown(self):
 		print(self.__colors["DEFAULT"], end = "")
 		sys.exit()
 
-	'''
-	'' @brief returns the complete path to a file/directory in the target directory
-	'' @param element_name a file/directory name as a string
-	'''
+	#
+	# @brief returns the complete path to a file/directory in the target directory
+	# @param element_name a file/directory name as a string
+	#
 	def __CreatePath(self, element_name):
 		return self._directory_path + '\\' + element_name
 
-	'''
-	'' @brief retrieves the target directory's contents in a list of strings
-	'''
+	#
+	# @brief retrieves the target directory's contents in a list of strings
+	#
 	def __GetDirAsList(self):
 		try:
 			dir_list = os.listdir(self._directory_path)
@@ -60,32 +60,32 @@ class ls:
 	def __IsExecutable(self, file_name):
 		output = subprocess.Popen("call " + file_name, stdout = subprocess.PIPE, shell= True)
 
-	'''
-	'' @brief correctly formats a file's name string based on its identity
-	'' @param file_name the file's name as a string
-	'' @return the new ANSI color-formatted string 
-	'''
+	#
+	# @brief correctly formats a file's name string based on its identity
+	# @param file_name the file's name as a string
+	# @return the new ANSI color-formatted string 
+	#
 	def __ProcessFile(self, file_name):
 		try:
 			return self.__colors["REG_FILE"] + file_name
 		except:
 			print("Unexpected Error for file " + self.__CreatePath(file_name))
 			self.__ShutDown()
-	'''
-	'' @brief correctly formats a directory's name string
-	'' @param dir_name directory name as a string
-	'' @return the formatted ANSI color string
-	'''
+	#
+	# @brief correctly formats a directory's name string
+	# @param dir_name directory name as a string
+	# @return the formatted ANSI color string
+	#
 	def __ProcessDir(self, dir_name):
 		try:
 			return self.__colors["DIRECTORY"] + dir_name
 		except: 
 			print("Unexpected Error for directory " + self.__CreatePath(dir_name))
 			self.__ShutDown()
-	'''
-	'' @brief formats the output matrix and prints
-	'' @param colored_names_matrix a matrix of ColoredName objects arranged in the printing positions
-	'''
+	#
+	# @brief formats the output matrix and prints
+	# @param colored_names_matrix a matrix of ColoredName objects arranged in the printing positions
+	#
 	def __FormatOutput(self, colored_names_matrix):
 		num_cols = len(colored_names_matrix)
 		max_rows = len(colored_names_matrix[0])
@@ -100,11 +100,11 @@ class ls:
 			if i != max_rows-1:
 				print()
 
-	'''
-	'' @brief finds the length (not including ANSI chars) of the longest name string in colored_names
-	'' @param colored_names list of ColoredName objects
-	'' @return the length as an int
-	'''
+	#
+	# @brief finds the length (not including ANSI chars) of the longest name string in colored_names
+	# @param colored_names list of ColoredName objects
+	# @return the length as an int
+	#
 	def __FindLengthOfLongestName(self, colored_names):
 		max_length = 0
 		for i in range(len(colored_names)):
@@ -112,12 +112,12 @@ class ls:
 				max_length = colored_names[i].real_length
 		return max_length
 
-	'''
-	'' @brief organized the contents of colored_names in a matrix that represents print order 
-	''        to ensure that the output fits inside the width of the terminal
-	'' @param colored_names list of ColoredName objects 
-	'' @return the matrix spine (list of lists)
-	'''
+	#
+	# @brief organized the contents of colored_names in a matrix that represents print order 
+	#        to ensure that the output fits inside the width of the terminal
+	# @param colored_names list of ColoredName objects 
+	# @return the matrix spine (list of lists)
+	#
 	def __PackMatrix(self, colored_names):
 		terminal_size = shutil.get_terminal_size().columns
 		self._longest_length = self.__FindLengthOfLongestName(colored_names)
