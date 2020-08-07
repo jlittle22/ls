@@ -74,5 +74,5 @@ def main():
     driver.Run()
 
 if __name__ == "__main__":
-    #cProfile.run("main()")
+    #cProfile.run("main()") <-- Uncomment me to profile the program :)
     main()
