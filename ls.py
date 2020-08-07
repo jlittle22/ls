@@ -34,7 +34,7 @@ class ls:
         self._recursive_on = recursive_on
 
     """
-      brief: shuts down the program in the case of an error
+      brief: changes stdout's color back to default and shuts down
     """
     def __ShutDown(self):
         print(self.__colors["DEFAULT"], end = "")
@@ -54,10 +54,10 @@ class ls:
         try:
             dir_list = os.listdir(self._directory_path)
         except FileNotFoundError:
-            print("Directory " + self._directory_path + " not found")
+            sys.stderr.write("Directory " + self._directory_path + " not found\n")
             self.__ShutDown()
         except PermissionError:
-            print("ls: cannot open directory " + self._directory_path + ": Permission denied")
+            sys.stderr.write("ls: cannot open directory " + self._directory_path + ": Permission denied\n")
             self.__ShutDown()
 
         return dir_list
@@ -71,22 +71,16 @@ class ls:
       return: the new ANSI color-formatted string 
     """
     def __ProcessFile(self, file_name):
-        try:
-            return self.__colors["REG_FILE"] + file_name
-        except:
-            print("Unexpected Error for file " + self.__CreatePath(file_name))
-            self.__ShutDown()
+        return self.__colors["REG_FILE"] + file_name
+
     """
       brief: correctly formats a directory's name string
       param: dir_name directory name as a string
       return: the formatted ANSI color string
     """
     def __ProcessDir(self, dir_name):
-        try:
-            return self.__colors["DIRECTORY"] + dir_name
-        except: 
-            print("Unexpected Error for directory " + self.__CreatePath(dir_name))
-            self.__ShutDown()
+        return self.__colors["DIRECTORY"] + dir_name
+
     """
       brief: formats the output matrix and prints
       param: colored_names_matrix a matrix of ColoredName objects arranged in the printing positions

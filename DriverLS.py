@@ -51,13 +51,13 @@ class DriverLS:
                 try:
                     self.ProcessOptionArg(each)
                 except:
-                    print("ls: invalid option -- '" + self._exception_arg + "'")
+                    sys.stderr.write("ls: invalid option -- '" + self._exception_arg + "'\n")
                     sys.exit()
             else:
                 try:
                     self.ProcessPathArg(each)
                 except:
-                    print("ls: cannot access " + each + ": No such file or directory")
+                    sys.stderr.write("ls: cannot access " + each + ": No such file or directory\n")
                     sys.exit()
         # if the user has not provided a path to a target, default to listing the current working directory
         if not self._path_provided:
