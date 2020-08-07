@@ -26,10 +26,12 @@ class ls:
 	#
 	# @brief initializer for ls class
 	# @param path_string path to the target directory as a string
+	# @param recursive_on boolean value indicating if recursive listing is flagged
 	#
-	def __init__(self, path_string):
+	def __init__(self, path_string, recursive_on):
 		os.system("")
 		self._directory_path = path_string
+		self._recursive_on = recursive_on
 
 	#
 	# @brief shuts down the program in the case of an error
@@ -54,6 +56,10 @@ class ls:
 		except FileNotFoundError:
 			print("Directory " + self._directory_path + " not found")
 			self.__ShutDown()
+		except PermissionError:
+			print("ls: cannot open directory " + self._directory_path + ": Permission denied")
+			self.__ShutDown()
+
 		return dir_list
 
 	# TODO - NOT working/complete
@@ -148,11 +154,14 @@ class ls:
 
 		# color format and add each element in directory to list of ColoredNames
 		colored_names = []
+		directories_only = []
 		for each in dir_list:
 			if os.path.isfile(self.__CreatePath(each)) == True:
 				colored_names.append(ColoredName(self.__ProcessFile(each), len(each)))
 			elif os.path.isdir(self.__CreatePath(each)) == True:
 				colored_names.append(ColoredName(self.__ProcessDir(each), len(each)))
+				if self._recursive_on:
+					directories_only.append(each)
 			else: 
 				raise Exception("Error: unknown object " + self.__CreatePath(each))
 				self.__ShutDown()
@@ -164,8 +173,22 @@ class ls:
 			# convert ColoredName list to printable matrix
 			matrix = self.__PackMatrix(colored_names)
 
+			# if recursively list, specify which directory we are inspecting
+			if self._recursive_on:
+				print(self._directory_path)
+
 			# format and print the matrix contents
 			self.__FormatOutput(matrix)
 
 			# reset the terminal's text color to the default
 			print(self.__colors["DEFAULT"], end = "")
+
+			# if recusively listing, iterate through directories in current directory and recurse			
+			if self._recursive_on:
+				print("\n")
+				old_path = self._directory_path
+				for each in directories_only:
+					self._directory_path = old_path + "\\" + each
+					self.PrintDirContents()
+					self._directory_path = old_path
+
