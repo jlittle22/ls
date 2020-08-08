@@ -1,9 +1,11 @@
 # My List Command
 
 -- Overview --
+
 Despite the fact the fact that the vast majority of my software engineering experience has been on Linux operating systems (either professionally or via SSH for academic work), until recently, my personal machine ran on Windows. Because of this, I always found myself habitually typing 'ls' in my Windows command prompt. With that in mind, I decided to implement my own version of Linux's list command.
 
 -- The Program --
+
 My list command has a small fraction of the full functionality offered by the original. These are its key features:
 
     * Mimics the format of the original list command's interface almost exactly (meaning a user who habitually uses the original can easily transition)
