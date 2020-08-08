@@ -2,7 +2,7 @@
 
 -- Overview --
 
-Despite the fact the fact that the vast majority of my software engineering experience has been on Linux operating systems (either professionally or via SSH for academic work), until recently, my personal machine ran on Windows. Because of this, I always found myself habitually typing 'ls' in my Windows command prompt. With that in mind, I decided to implement my own version of Linux's list command.
+Despite the fact the fact that the vast majority of my software engineering experience has been on Linux operating systems (either professionally or via SSH for academic work), until recently, my personal machine ran on Windows. Because of this, I always found myself habitually typing 'ls' in my Windows command prompt. With that in mind, I decided to implement my own version of Linux's list command. This repo contains the source code for that command. It's worth noting that there is a small batch script (by small I mean 1 line) which executes the Python driver and accepts arguments, but I did not include it here since it'd really take up more space than it's worth. I also added that script to my machine's path so it could be executed anywhere with the same usage as the original.
 
 -- The Program --
 
@@ -28,5 +28,5 @@ And here are some of its major drawbacks:
       
 -- TODOs --
 
-    * Implement -l listing
+    * Implement '-l' listing
     * Implement new color coding (ideally executables as green since that is likely the next most valuable distinction)
