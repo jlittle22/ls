@@ -124,6 +124,10 @@ class ls:
         # find the worst case number of words that can fit in the terminal's width
         num_words_in_terminal_width = terminal_size // (self._longest_length + self.__std_min_padding)
 
+        # if the longest word in the directory is wider than the terminal width, we need to avoid division by zero
+        if num_words_in_terminal_width == 0:
+            num_words_in_terminal_width += 1
+
         # find the maximum number of words possible in each column
         max_words_per_col = math.ceil(len(colored_names) / num_words_in_terminal_width)
 
