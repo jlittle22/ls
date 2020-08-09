@@ -39,4 +39,4 @@ python DriverLS [path to target] [flags]
 ```
 path to target: path to a directory. Defaults to current working directory.
 
-flags: only currently availabe option is '-R'.
+flags: only currently available option is '-R'.
