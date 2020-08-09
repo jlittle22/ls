@@ -30,3 +30,13 @@ And here are some of its major drawbacks:
 
     * Implement '-l' listing
     * Implement new color coding (ideally executables as green since that is likely the next most valuable distinction)
+
+-- Usage --
+
+Without a script...
+```
+python DriverLS [path to target] [flags]
+```
+path to target: path to a directory. Defaults to current working directory.
+
+flags: only currently availabe option is '-R'.
