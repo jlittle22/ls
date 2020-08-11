@@ -43,6 +43,7 @@ And here are some of its major drawbacks:
 **-- TODOs --**
 
     * Implement '-l' listing
+    * Implement the '-a' option and have hidden files be hidden by default
     * Implement new color coding (ideally executables as green since that is 
       likely the next most valuable distinction)
 
