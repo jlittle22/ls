@@ -40,7 +40,7 @@ And here are some of its major drawbacks:
 
 Without a script...
 ```
-python DriverLS [path to target] [flags]
+python DriverLS [flags] [path to target]
 ```
 path to target: path to a directory. Defaults to current working directory.
 
