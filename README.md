@@ -4,6 +4,16 @@
 
 Despite the fact the fact that the vast majority of my software engineering experience has been on Linux operating systems (either professionally or via SSH for academic work), until recently, my personal machine ran on Windows. Because of this, I always found myself habitually typing 'ls' in my Windows command prompt. With that in mind, I decided to implement my own version of Linux's list command. This repo contains the source code for that command. It's worth noting that there is a small batch script (by small I mean 1 line) which executes the Python driver and accepts arguments, but I did not include it here since it'd really take up more space than it's worth. I also added that script to my machine's path so it could be executed anywhere with the same usage as the original.
 
+**-- Demo Images --**
+
+*Screenshots taken from my brother trying out my ls command.*
+
+A larger terminal window means my ls command adapts by increasing table width to fill more of the window.
+![Larger Teminal Window](lsDemoSnip.PNG)
+
+And similarly, for smaller windows, the ls command decreases its table width to become more compact.
+![Smaller Teminal Window](lsDemoSnip2.PNG)
+
 **-- The Program --**
 
 My list command has a small fraction of the full functionality offered by the original. These are its key features:
@@ -48,12 +58,3 @@ python DriverLS [flags] [path to target]
 
 Create a script to call the command above and add it to your environment variables to use my list command the same way you use the original.
 
-**-- Demo Images --**
-
-*Screenshots taken from my brother trying out my ls command.*
-
-A larger terminal window means my ls command adapts by increasing table width to fill more of the window.
-![Larger Teminal Window](lsDemoSnip.PNG)
-
-And similarly, for smaller windows, the ls command decreases its table width to become more compact.
-![Smaller Teminal Window](lsDemoSnip2.PNG)
