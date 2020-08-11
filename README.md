@@ -49,4 +49,9 @@ python DriverLS [flags] [path to target]
 Create a script to call the command above and add it to your environment variables to use my list command the same way you use the original.
 
 **-- Demo Images --**
-![Smaller Teminal Window](lsDemoSnip.PNG)
+
+A larger terminal window means my ls command adapts by increasing table size to fill more of the window.
+![Larger Teminal Window](lsDemoSnip.PNG)
+
+And similarly, for smaller windows, the ls command decreases its table size to become more compact.
+![Smaller Teminal Window](lsDemoSnip2.PNG)
