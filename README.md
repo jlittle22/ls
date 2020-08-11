@@ -50,10 +50,10 @@ Create a script to call the command above and add it to your environment variabl
 
 **-- Demo Images --**
 
-Screenshots taken from my brother trying out my ls command.
+*Screenshots taken from my brother trying out my ls command.*
 
-A larger terminal window means my ls command adapts by increasing table size to fill more of the window.
+A larger terminal window means my ls command adapts by increasing table width to fill more of the window.
 ![Larger Teminal Window](lsDemoSnip.PNG)
 
-And similarly, for smaller windows, the ls command decreases its table size to become more compact.
+And similarly, for smaller windows, the ls command decreases its table width to become more compact.
 ![Smaller Teminal Window](lsDemoSnip2.PNG)
