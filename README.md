@@ -50,7 +50,7 @@ And here are some of its major drawbacks:
 
 Without a script...
 ```
-python DriverLS [flags] [path to target]
+python DriverLS.py [flags] [path to target]
 ```
 **path to target**: path to a directory. Defaults to current working directory.
 
