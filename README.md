@@ -20,7 +20,7 @@ My list command has a small fraction of the full functionality offered by the or
 
     * Mimics the format of the original list command's interface almost exactly
     (meaning a user who habitually uses the original can easily transition)
-    * Implements the critically important '-R' recursive listing option
+    * Implements the critically important '-R' recursive listing option as well as '-a' listing.
     * Mimics the original command's color and table formatting with some limitations
         - My command only differentiates files (default color) and directories (navy blue)
           I've been working on upgrading it to identify more kinds of files, but it seems 
@@ -43,7 +43,6 @@ And here are some of its major drawbacks:
 **-- TODOs --**
 
     * Implement '-l' listing
-    * Implement the '-a' option and have hidden files be hidden by default
     * Implement new color coding (ideally executables as green since that is 
       likely the next most valuable distinction)
 
