@@ -36,9 +36,8 @@ class ls:
     """
       brief: changes stdout's color back to default and shuts down
     """
-    def __ShutDown(self):
+    def __del__(self):
         print(self.__colors["DEFAULT"], end = "")
-        sys.exit()
 
     """
       brief: returns the complete path to a file/directory in the target directory
@@ -55,10 +54,8 @@ class ls:
             dir_list = os.listdir(self._directory_path)
         except FileNotFoundError:
             sys.stderr.write("Directory " + self._directory_path + " not found\n")
-            self.__ShutDown()
         except PermissionError:
             sys.stderr.write("ls: cannot open directory " + self._directory_path + ": Permission denied\n")
-            self.__ShutDown()
 
         return dir_list
 
@@ -163,7 +160,6 @@ class ls:
                     directories_only.append(each)
             else: 
                 raise Exception("Error: unknown object " + self.__CreatePath(each))
-                self.__ShutDown()
 
         # if the directory is empty, print newline and exit
         if not dir_list:
