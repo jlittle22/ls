@@ -8,6 +8,7 @@ class DriverLS:
 	# set of valid command line options
     _valid_args = set()
     _valid_args.add("R")
+    _valid_args.add("a")
     _valid_args.add("-")
 
     """ initializer for the class... gathers command line arguments and sets defaults """
@@ -15,6 +16,7 @@ class DriverLS:
         self._args = sys.argv
         self._args_count = len(sys.argv)
         self._recursive_flag = False
+        self._hidden_flag = False
         self._path_provided = False
         self._path = ""
         self._exception_arg = ""
@@ -37,6 +39,8 @@ class DriverLS:
             else:
                 if chars[i] == "R":
                     self._recursive_flag = True
+                elif chars[i] == "a":
+                    self._hidden_flag = True
                 elif (chars[i] == "-"):
                     if (i == len(chars) - 1):
                         self._exception_arg = "-"
@@ -64,7 +68,7 @@ class DriverLS:
             self._path = os.getcwd()
 
         # init and run the list program with our processed flags
-        runner = ls(self._path, self._recursive_flag)
+        runner = ls(self._path, self._recursive_flag, self._hidden_flag)
         runner.PrintDirContents()
 
 

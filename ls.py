@@ -28,10 +28,11 @@ class ls:
       param: path_string path to the target directory as a string
       param: recursive_on boolean value indicating if recursive listing is flagged
     """
-    def __init__(self, path_string, recursive_on):
+    def __init__(self, path_string, recursive_on, hidden_on):
         os.system("")
         self._directory_path = path_string
         self._recursive_on = recursive_on
+        self._hidden_on = hidden_on
 
     """
       brief: changes stdout's color back to default and shuts down
@@ -51,7 +52,7 @@ class ls:
     """
     def __GetDirAsList(self):
         try:
-            dir_list = os.listdir(self._directory_path)
+            dir_list = [each for each in os.listdir(self._directory_path) if each[0] != '.' or self._hidden_on]
         except FileNotFoundError:
             sys.stderr.write("Directory " + self._directory_path + " not found\n")
         except PermissionError:
