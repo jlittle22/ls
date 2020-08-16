@@ -54,7 +54,7 @@ python DriverLS [flags] [path to target]
 ```
 **path to target**: path to a directory. Defaults to current working directory.
 
-**flags**: only currently available option is '-R'.
+**flags**: only currently available options are recursive, '-R', and with-hidden-file, '-a'.
 
 Create a script to call the command above and add it to your environment variables to use my list command the same way you use the original.
 
