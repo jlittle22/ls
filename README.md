@@ -56,5 +56,7 @@ python DriverLS.py [flags] [path to target]
 
 **flags**: only currently available options are recursive, '-R', and with-hidden-file, '-a'.
 
+***Requires Python3**
+
 Create a script to call the command above and add it to your environment variables to use my list command the same way you use the original.
 
