@@ -19,7 +19,7 @@ class ls:
     __colors["DIRECTORY"] = "\u001b[34m"
     __colors["REG_FILE"] = "\u001b[37m"
     __colors["GREEN"] = "\u001b[32m"
-    __colors["DEFAULT"] = "\u001b[32m"
+    __colors["DEFAULT"] = "\u001b[0m"
 
     __std_min_padding = 2  # standard minimum number of spaces between file/directory names
 
